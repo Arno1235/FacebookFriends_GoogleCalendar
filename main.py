@@ -32,6 +32,21 @@ for scroll in range(20):
     time.sleep(0.2)
 
 birthdays = []
+
+for date in driver.find_elements(By.CLASS_NAME, 'x193iq5w.xeuugli.x13faqbe.x1vvkbs.xlh3980.xvmahel.x1n0sxbx.x1lliihq.x1s928wv.xhkezso.x1gmr53x.x1cpjm7i.x1fgarty.x1943h6x.x1tu3fi.x676frb.x1pg5gke.xvq8zen.xo1l8bm.xi81zsa'):
+    date = date.get_attribute("innerText")
+
+    if date[-3:] == 'old':
+        continue
+    
+    birthdays.append(["", date.split(',')[0]])
+
+for i, name in enumerate(driver.find_elements(By.CLASS_NAME, 'x193iq5w.xeuugli.x13faqbe.x1vvkbs.xlh3980.xvmahel.x1n0sxbx.x1lliihq.x1s928wv.xhkezso.x1gmr53x.x1cpjm7i.x1fgarty.x1943h6x.x4zkp8e.x3x7a5m.x6prxxf.xvq8zen.x1s688f.xzsf02u')[-len(birthdays):]):
+    name = name.get_attribute("innerText") + "'s Birthday"
+    birthdays[i][0] = name
+
+    print(f'found: {name} is {birthdays[i][1]}')
+
 for person in driver.find_elements(By.CLASS_NAME, 'x1gslohp.xw3qccf.x12nagc.xsgj6o6'):
 
     actions.move_to_element(person).perform()
