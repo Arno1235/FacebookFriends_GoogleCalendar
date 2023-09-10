@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 import time
-import pickle
 import csv
 
 options = Options()
@@ -57,14 +56,6 @@ for person in driver.find_elements(By.CLASS_NAME, 'x1gslohp.xw3qccf.x12nagc.xsgj
     birthdays.append(tt_text.split(' is '))
 
 print(f'found {len(birthdays)} birthdays!')
-
-with open("birthdays_checkpoint.p", "wb" ) as f:
-	pickle.dump(birthdays, f)
-     
-# --- CHECKPOINT ---
-
-with open("birthdays_checkpoint.p", "rb" ) as f:
-    birthdays = pickle.load(f)
 
 csv_list = [["Subject", "Start date", "All Day Event"]]
 
