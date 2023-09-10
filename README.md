@@ -14,3 +14,5 @@ Tested on 10/09/2023
 8. Run make_recurrent.py
 9. Import output.ics to your Google Calendar
 10. (optional) Change the settings of the Google Calendar to have a default notification
+
+Improvement: implement Today's Birthdays
